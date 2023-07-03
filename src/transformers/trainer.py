@@ -3838,8 +3838,8 @@ class Trainer:
 
     def create_accelerator_and_postprocess(self):
         grad_acc_kwargs = {"num_steps": self.args.gradient_accumulation_steps}
-        if version.parse(accelerate_version) > version.parse("0.20.3"):
-            grad_acc_kwargs["sync_with_dataloader"] = False
+        # if version.parse(accelerate_version) > version.parse("0.20.3"):
+        #     grad_acc_kwargs["sync_with_dataloader"] = False
         gradient_accumulation_plugin = GradientAccumulationPlugin(**grad_acc_kwargs)
 
         # create accelerator object
